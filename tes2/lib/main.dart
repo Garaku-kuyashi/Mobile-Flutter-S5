@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart'; // Import go_router
+import 'package:go_router/go_router.dart';
 
 void main() => runApp(const MyApp());
 
-// Konfigurasi GoRouter
 final GoRouter _router = GoRouter(
   routes: [
     GoRoute(
@@ -13,7 +12,6 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/detail',
       builder: (context, state) {
-        // Menerima data string yang dikirim melalui 'extra'
         final String description = state.extra as String? ?? '';
         return DetailDeskripsiScreen(description: description);
       },
@@ -26,7 +24,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Menggunakan MaterialApp.router alih-alih MaterialApp biasa
     return MaterialApp.router(
       routerConfig: _router,
       title: 'Introduction',
@@ -247,6 +244,12 @@ class ImageSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(image, width: 600, height: 240, fit: BoxFit.contain);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: CircleAvatar(
+        radius: 70,
+        backgroundImage: AssetImage(image),
+      ),
+    );
   }
 }
