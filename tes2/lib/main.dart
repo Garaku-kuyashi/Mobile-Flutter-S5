@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
               description:
                   'Halo Semua Perkenalkan Aku M.Fahrianor, Mahasiswa Universitas Mulawarman Fakultas Teknik Jurusan Informatika '
                   'Hobiku Adalah Bermain Game, dan Membaca Buku. '
-                  'Ini Adalah Tugas Pertama Aku Dalam Membuat Aplikasi Flutter. ',
+                  'Ini Adalah Tugas Aku Dalam Membuat Aplikasi Flutter. ',
             ),
           ],
         ),
@@ -168,28 +168,22 @@ class TextSection extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
-            // Navigasi menggunakan go_router dengan context.push
             context.push('/detail', extra: description);
           },
           borderRadius: BorderRadius.circular(12),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
+          child: const Padding(
+            padding: EdgeInsets.all(20),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text(
-                    description,
-                    softWrap: true,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
-                    ),
+                Text(
+                  'Tekan Saya', 
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(width: 8),
-                const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
               ],
             ),
           ),
